@@ -15,7 +15,7 @@ mongoose.connect('mongodb+srv://boilerplate:boilerplate@boilerplate.lbnu6.mongod
 .catch(err => console.log(err))
 
 app.get('/', (req, res) => {
-  res.send('Hello World! 안녕하세요')
+  res.send('Hello World! 안녕하세요??')
 })
 
 app.post('/register', (req, res) => {
