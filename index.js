@@ -2,6 +2,9 @@ const express = require('express')
 const app = express()
 const port = 3000
 const bodyParser = require('body-parser');
+
+const config = require('./config/key');
+
 const { User } = require("./models/User");
 
 //application/x-www-form-urlencoded 데이터를 분석해서 가져옴
@@ -11,7 +14,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
 const mongoose = require('mongoose')
-mongoose.connect('mongodb+srv://boilerplate:boilerplate@boilerplate.lbnu6.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', {useNewUrlParser: true, useUnifiedTopology: true}).then(() => console.log('MongoDB Connected...'))
+mongoose.connect(config.mongoURI, {useNewUrlParser: true, useUnifiedTopology: true}).then(() => console.log('MongoDB Connected...'))
 .catch(err => console.log(err))
 
 app.get('/', (req, res) => {
